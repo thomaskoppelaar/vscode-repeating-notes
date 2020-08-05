@@ -1,40 +1,64 @@
 {
+	"publisher": "thomaskoppelaar",
 	"name": "repeating-notes",
 	"displayName": "Repeating Notes",
-	"description": "Take notes on a regular basis: Daily, Weekly, Monthly, etc.",
+	"description": "Take notes on a regular basis: Daily, Weekly, Monthly",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.47.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/thomaskoppelaar/vscode-repeating-notes.git"
 	},
 	"categories": [
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:repeating-notes.helloWorld"
+		"onCommand:repeating-notes.dailyNote",
+		"onCommand:repeating-notes.weeklyNote",
+		"onCommand:repeating-notes.monthlyNote"
 	],
-	"main": "./extension.js",
+	"main": "./dist/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "repeating-notes.helloWorld",
-				"title": "Hello World"
+				"command": "repeating-notes.dailyNote",
+				"title": "Repeating Notes: Go to daily note"
+			},
+			{
+				"command": "repeating-notes.weeklyNote",
+				"title": "Repeating Notes: Go to weekly note"
+			},
+			{
+				"command": "repeating-notes.monthlyNote",
+				"title": "Repeating Notes: Go to monthly note"
 			}
 		]
 	},
 	"scripts": {
 		"lint": "eslint .",
 		"pretest": "npm run lint",
-		"test": "node ./test/runTest.js"
+		"test": "node ./test/runTest.js",
+		"vscode:prepublish": "webpack --mode production",
+		"webpack": "webpack --mode development",
+		"webpack-dev": "webpack --mode development --watch",
+		"test-compile": "tsc -p ./"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.47.0",
 		"@types/glob": "^7.1.1",
 		"@types/mocha": "^7.0.2",
 		"@types/node": "^13.11.0",
+		"@types/vscode": "^1.47.0",
 		"eslint": "^6.8.0",
 		"glob": "^7.1.6",
 		"mocha": "^7.1.2",
 		"typescript": "^3.8.3",
-		"vscode-test": "^1.3.0"
+		"vscode-test": "^1.3.0",
+		"webpack": "^4.44.1",
+		"webpack-cli": "^3.3.12"
+	},
+	"dependencies": {
+		"dateformat": "^3.0.3"
 	}
 }
