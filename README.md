@@ -14,5 +14,5 @@ Adds three new commands:
 
 I'm planning on adding the following features:
 
-- [ ] User settings, to allow for more control over filename formatting, folder name, etc.
+- [X] User settings, to allow for more control over filename formatting, folder name, etc.
 - [ ] Automatic file creation when opening a workspace
