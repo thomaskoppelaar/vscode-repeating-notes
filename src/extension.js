@@ -7,11 +7,16 @@ function activate(context) {
 
 	//TODO: Add settings options for these constants
 	// https://www.npmjs.com/package/dateformat#user-content-mask-options
+	const config = vscode.workspace.getConfiguration("repeating-notes");
+
 	const dailyNoteMask = "dd-mm-yyyy";
 	const weeklyNoteMask = "'week-'W-yyyy";
 	const monthlyNoteMask = "mmmm-yyyy";
-	const noteDirectory = "journal";
-	const fileType = ".md";
+	
+	const dailyNoteDirectory = config.get("dailynotefolder");
+	const weeklyNoteDirectory = config.get("weeklynotefolder");
+	const monthlyNoteDirectory = config.get("monthlynotefolder");
+	const fileType = config.get("filetype");
 
 	// Get workspace rootdir and eol
 	const rootDirectory = vscode.workspace.workspaceFolders[0].uri.fsPath;
@@ -20,24 +25,24 @@ function activate(context) {
 	
 	let daily = vscode.commands.registerCommand('repeating-notes.dailyNote', async function () {
 		const currentDate = new Date();
-		createNote(currentDate, dailyNoteMask);
+		createNote(currentDate, dailyNoteMask, dailyNoteDirectory);
 	});
 
 	let weekly = vscode.commands.registerCommand('repeating-notes.weeklyNote', async function () {
 		const currentDate = new Date();
-		createNote(currentDate, weeklyNoteMask);
+		createNote(currentDate, weeklyNoteMask, weeklyNoteDirectory);
 	});
 
 	let monthly = vscode.commands.registerCommand('repeating-notes.monthlyNote', async function () {
 		const currentDate = new Date();
-		createNote(currentDate, monthlyNoteMask);
+		createNote(currentDate, monthlyNoteMask, monthlyNoteDirectory);
 	});
 
-	async function createNote(date, mask) {
+	async function createNote(date, mask, directory) {
 
 		const noteFileName = `${dateFormat(date, mask).toLowerCase()}${fileType}`;
 	
-		const filePath = path.join(rootDirectory, noteDirectory, noteFileName);
+		const filePath = path.join(rootDirectory, directory, noteFileName);
 
 		if (await pathExists(filePath)) {
 

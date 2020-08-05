@@ -21,6 +21,33 @@
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
+		"configuration": [
+			{
+				"title": "Repeating Notes",
+				"properties": {
+					"repeating-notes.dailynotefolder": {
+						"type": "string",
+						"default": "journal",
+						"description": "The folder to put daily notes into."
+					},
+					"repeating-notes.weeklynotefolder": {
+						"type": "string",
+						"default": "journal",
+						"description": "The folder to put weekly notes into."
+					},
+					"repeating-notes.monthlynotefolder": {
+						"type": "string",
+						"default": "journal",
+						"description": "The folder to put monthly notes into."
+					},
+					"repeating-notes.filetype": {
+						"type": "string",
+						"default": ".md",
+						"description": "The file extension to use when creating a new note."
+					}
+				}
+			}
+		],
 		"commands": [
 			{
 				"command": "repeating-notes.dailyNote",
