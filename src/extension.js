@@ -13,9 +13,9 @@ function activate(context) {
 	const weeklyNoteMask = config.get("weeklyNoteMask");
 	const monthlyNoteMask = config.get("monthlyNoteMask");
 	
-	const dailyNoteDirectory = config.get("dailynotefolder");
-	const weeklyNoteDirectory = config.get("weeklynotefolder");
-	const monthlyNoteDirectory = config.get("monthlynotefolder");
+	const dailyNoteDirectory = config.get("dailyNoteFolder");
+	const weeklyNoteDirectory = config.get("weeklyNoteFolder");
+	const monthlyNoteDirectory = config.get("monthlyNoteFolder");
 	const fileType = config.get("filetype");
 
 	// Get workspace rootdir and eol
