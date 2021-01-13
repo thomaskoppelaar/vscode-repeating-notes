@@ -3,7 +3,7 @@
 	"name": "repeating-notes",
 	"displayName": "Repeating Notes",
 	"description": "Take notes on a regular basis: Daily, Weekly, Monthly",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"engines": {
 		"vscode": "^1.47.0"
 	},
@@ -25,17 +25,17 @@
 			{
 				"title": "Repeating Notes",
 				"properties": {
-					"repeating-notes.dailynotefolder": {
+					"repeating-notes.dailyNoteFolder": {
 						"type": "string",
 						"default": "journal",
 						"description": "The folder to put daily notes into."
 					},
-					"repeating-notes.weeklynotefolder": {
+					"repeating-notes.weeklyNoteFolder": {
 						"type": "string",
 						"default": "journal",
 						"description": "The folder to put weekly notes into."
 					},
-					"repeating-notes.monthlynotefolder": {
+					"repeating-notes.monthlyNoteFolder": {
 						"type": "string",
 						"default": "journal",
 						"description": "The folder to put monthly notes into."
@@ -44,6 +44,21 @@
 						"type": "string",
 						"default": ".md",
 						"description": "The file extension to use when creating a new note."
+					},
+					"repeating-notes.dailyNoteMask": {
+						"type": "string",
+						"default": "dd-mm-yyyy",
+						"description": "The mask to use for creating the daily note. See: https://www.npmjs.com/package/dateformat#user-content-mask-options for more information."
+					},
+					"repeating-notes.weeklyNoteMask": {
+						"type": "string",
+						"default": "'week-'W-yyyy",
+						"description": "The mask to use for creating the weekly note. See: https://www.npmjs.com/package/dateformat#user-content-mask-options for more information."
+					},
+					"repeating-notes.monthlyNoteMask": {
+						"type": "string",
+						"default": "mmmm-yyyy",
+						"description": "The mask to use for creating the monthly note. See: https://www.npmjs.com/package/dateformat#user-content-mask-options for more information."
 					}
 				}
 			}

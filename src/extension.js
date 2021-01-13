@@ -9,9 +9,9 @@ function activate(context) {
 	// https://www.npmjs.com/package/dateformat#user-content-mask-options
 	const config = vscode.workspace.getConfiguration("repeating-notes");
 
-	const dailyNoteMask = "dd-mm-yyyy";
-	const weeklyNoteMask = "'week-'W-yyyy";
-	const monthlyNoteMask = "mmmm-yyyy";
+	const dailyNoteMask = config.get("dailyNoteMask");
+	const weeklyNoteMask = config.get("weeklyNoteMask");
+	const monthlyNoteMask = config.get("monthlyNoteMask");
 	
 	const dailyNoteDirectory = config.get("dailynotefolder");
 	const weeklyNoteDirectory = config.get("weeklynotefolder");
